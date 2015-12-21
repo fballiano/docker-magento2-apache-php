@@ -24,4 +24,5 @@ RUN docker-php-ext-install \
   xsl \
   zip
 
+RUN a2enmod rewrite
 RUN usermod -u 501 www-data
