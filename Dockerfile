@@ -23,3 +23,5 @@ RUN docker-php-ext-install \
   pdo_mysql \
   xsl \
   zip
+
+RUN usermod -u 501 www-data
