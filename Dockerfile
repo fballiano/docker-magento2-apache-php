@@ -12,7 +12,7 @@ RUN apt-get update \
     git \
     vim \
     wget \
-    lynx
+    lynx \
   && apt-get clean
 
 RUN docker-php-ext-configure \
