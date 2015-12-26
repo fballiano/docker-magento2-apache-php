@@ -30,6 +30,7 @@ RUN docker-php-ext-install \
 
 RUN a2enmod rewrite
 #RUN usermod -u 501 www-data
+RUN usermod -u 1000 www-data
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN curl -o n98-magerun2.phar http://files.magerun.net/n98-magerun2-latest.phar; chmod +x ./n98-magerun2.phar; mv n98-magerun2.phar /usr/local/bin/
 RUN mkdir /root/.composer
