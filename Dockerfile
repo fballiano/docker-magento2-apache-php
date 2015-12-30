@@ -27,7 +27,10 @@ RUN docker-php-ext-configure \
     zip \
     opcache
 
+ADD https://raw.githubusercontent.com/colinmollenhour/credis/master/Client.php /credis.php
 ADD opcache.ini /usr/local/etc/php/conf.d/999-opcache.ini
+ADD register-host-on-redis.php /register-host-on-redis.php
+ADD unregister-host-on-redis.php /unregister-host-on-redis.php
 ADD start.sh /start.sh
 
 #RUN usermod -u 501 www-data #this was for dinghy
