@@ -36,7 +36,7 @@ RUN usermod -u 1000 www-data; \
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer; \
   curl -o n98-magerun2.phar http://files.magerun.net/n98-magerun2-latest.phar; \
   chmod +x ./n98-magerun2.phar; \
-  chmod +x ./start.sh; \
+  chmod +x /start.sh; \
   mv n98-magerun2.phar /usr/local/bin/; \
   mkdir /root/.composer
 
