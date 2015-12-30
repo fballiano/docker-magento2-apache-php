@@ -16,23 +16,28 @@ RUN apt-get update \
   && apt-get clean
 
 RUN docker-php-ext-configure \
-  gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-
-RUN docker-php-ext-install \
-  gd \
-  intl \
-  mbstring \
-  mcrypt \
-  pdo_mysql \
-  xsl \
-  zip \
-  opcache
-
-RUN a2enmod rewrite
-#RUN usermod -u 501 www-data
-RUN usermod -u 1000 www-data
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN curl -o n98-magerun2.phar http://files.magerun.net/n98-magerun2-latest.phar; chmod +x ./n98-magerun2.phar; mv n98-magerun2.phar /usr/local/bin/
-RUN mkdir /root/.composer
+    gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/; \
+  docker-php-ext-install \
+    gd \
+    intl \
+    mbstring \
+    mcrypt \
+    pdo_mysql \
+    xsl \
+    zip \
+    opcache
 
 ADD opcache.ini /usr/local/etc/php/conf.d/999-opcache.ini
+ADD start.sh /start.sh
+
+#RUN usermod -u 501 www-data #this was for dinghy
+RUN usermod -u 1000 www-data; \
+  a2enmod rewrite; \
+  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer; \
+  curl -o n98-magerun2.phar http://files.magerun.net/n98-magerun2-latest.phar; \
+  chmod +x ./n98-magerun2.phar; \
+  chmod +x ./start.sh; \
+  mv n98-magerun2.phar /usr/local/bin/; \
+  mkdir /root/.composer
+
+CMD ["/start.sh"]
