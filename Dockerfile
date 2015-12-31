@@ -13,6 +13,7 @@ RUN apt-get update \
     vim \
     wget \
     lynx \
+    psmisc \
   && apt-get clean
 
 RUN docker-php-ext-configure \
