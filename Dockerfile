@@ -43,6 +43,6 @@ RUN usermod -u 1000 www-data; \
   chmod +x /start.sh; \
   chmod +r /credis.php; \
   mv n98-magerun2.phar /usr/local/bin/; \
-  mkdir /root/.composer
+  mkdir -p /root/.composer
 
 CMD ["/start.sh"]
