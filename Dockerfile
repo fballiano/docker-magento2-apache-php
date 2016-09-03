@@ -34,7 +34,6 @@ ADD register-host-on-redis.php /register-host-on-redis.php
 ADD unregister-host-on-redis.php /unregister-host-on-redis.php
 ADD start.sh /start.sh
 
-#RUN usermod -u 501 www-data #this was for dinghy
 RUN usermod -u 1000 www-data; \
   a2enmod rewrite; \
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer; \
