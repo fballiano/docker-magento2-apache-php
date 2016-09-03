@@ -17,6 +17,6 @@ fi
 
 /usr/local/bin/php /register-host-on-redis.php
 rm -f /var/run/apache2/apache2.pid
-apache2
+service apache2 start
 
 while true; do sleep 1; done
