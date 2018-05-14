@@ -1,4 +1,4 @@
-FROM php:7.0-apache
+FROM php:7.1-apache
 MAINTAINER Fabrizio Balliano <fabrizio@fabrizioballiano.com>
 
 RUN apt-get update \
@@ -27,6 +27,7 @@ RUN docker-php-ext-configure \
     xsl \
     zip \
     opcache \
+    bcmath \
     soap
 
 ADD https://raw.githubusercontent.com/colinmollenhour/credis/master/Client.php /credis.php
