@@ -30,6 +30,10 @@ RUN docker-php-ext-configure \
     bcmath \
     soap
 
+RUN printf "\n" |  pecl install -o  -a -f redis \
+&&  rm -rf /tmp/pear \
+&&  docker-php-ext-enable redis
+
 ADD https://raw.githubusercontent.com/colinmollenhour/credis/master/Client.php /credis.php
 ADD php.ini /usr/local/etc/php/conf.d/888-fballiano.ini
 ADD register-host-on-redis.php /register-host-on-redis.php
