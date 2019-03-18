@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM php:7.2-apache
 MAINTAINER Fabrizio Balliano <fabrizio@fabrizioballiano.com>
 
 RUN apt-get update \
@@ -7,7 +7,7 @@ RUN apt-get update \
     libicu-dev \
     libjpeg62-turbo-dev \
     libmcrypt-dev \
-    libpng12-dev \
+    libpng-dev \
     libxslt1-dev \
     git \
     vim \
@@ -22,7 +22,6 @@ RUN docker-php-ext-configure \
     gd \
     intl \
     mbstring \
-    mcrypt \
     pdo_mysql \
     xsl \
     zip \
