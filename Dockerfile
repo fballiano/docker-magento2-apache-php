@@ -27,7 +27,8 @@ RUN docker-php-ext-configure \
     zip \
     opcache \
     bcmath \
-    soap
+    soap \
+    sockets
 
 ADD https://raw.githubusercontent.com/colinmollenhour/credis/master/Client.php /credis.php
 ADD php.ini /usr/local/etc/php/conf.d/888-fballiano.ini
