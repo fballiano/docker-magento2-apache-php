@@ -18,8 +18,7 @@ RUN apt-get update \
     psmisc \
   && apt-get clean
 
-RUN docker-php-ext-configure \
-    gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/; \
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg; \
   docker-php-ext-install \
     gd \
     intl \
