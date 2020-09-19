@@ -9,6 +9,7 @@ RUN apt-get update \
     libmcrypt-dev \
     libpng-dev \
     libxslt1-dev \
+    libonig-dev \
     git \
     vim \
     wget \
