@@ -16,7 +16,7 @@ RUN apt-get update \
     wget \
     lynx \
     psmisc \
-    zip unzip
+    zip unzip \
   && apt-get clean
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg; \
